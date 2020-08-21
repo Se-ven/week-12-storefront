@@ -1,28 +1,28 @@
 import React from 'react'
 
 class Products extends React.Component {
-    constructor () {
+    constructor() {
         super()
         this.state = {
-            results: []
+            response: []
         }
     }
 
     componentDidMount() {
         this.callApi()
-        .then(res => this.setState({ response: res.express }))
-        .catch(err => console.log(err));
+            .then(response => this.setState({ response: response.length + ' items found' }))
+            .catch(err => console.log(err));
     }
-    
+
     callApi = async () => {
         const response = await fetch('http://localhost:3001/products');
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
-        
+
         return body;
     };
 
-    render ()  {
+    render() {
         return (
             <div>
                 <div>Products Place holder</div>
