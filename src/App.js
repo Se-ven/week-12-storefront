@@ -26,7 +26,7 @@ export default function BasicExample() {
     <Router>
 
       <div>
-        <p>Subject Links</p>
+        <h1 className="App-header">Tee-Commerce Admin</h1>
         <Nav tabs>
           <NavItem>
             <NavLink href="/">Home</NavLink>
