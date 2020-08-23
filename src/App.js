@@ -11,6 +11,7 @@ import {
 import Products from './Products';
 import Logos from './Logos';
 import Categories from './Categories';
+import Login from './Login';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -28,6 +29,9 @@ export default function BasicExample() {
       <div>
         <h1 className="App-header">Tee-Commerce Admin</h1>
         <Nav tabs>
+          <NavItem>
+            <NavLink href="/login">Login</NavLink>
+          </NavItem>
           <NavItem>
             <NavLink href="/">Home</NavLink>
           </NavItem>
@@ -64,6 +68,9 @@ export default function BasicExample() {
         </Route>
         <Route path="/categories">
           <Categories />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
       </Switch>
 
