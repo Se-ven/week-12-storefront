@@ -5,10 +5,12 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
-import Products from './Products'
-import Logos from './Logos'
-import Categories from './Categories'
+import {
+  Container, Nav, NavItem, NavLink
+} from 'reactstrap';
+import Products from './Products';
+import Logos from './Logos';
+import Categories from './Categories';
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -22,46 +24,49 @@ import Categories from './Categories'
 export default function BasicExample() {
   return (
     <Router>
+
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/logos">Logos</Link>
-          </li>
-          <li>
-            <Link to="/categories">Categories</Link>
-          </li>
-        </ul>
+        <p>Subject Links</p>
+        <Nav tabs>
+          <NavItem>
+            <NavLink href="/">Home</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/products">Products</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/logos">Logos</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/categories">Categories</NavLink>
+          </NavItem>
+        </Nav>
+      </div>
+      <hr />
 
-        <hr />
-
-        {/*
+      {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
           matches the current URL. Use a <Switch> any time
           you have multiple routes, but you want only one
           of them to render at a time
         */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/products">
-            <Products />
-          </Route>
-          <Route path="/logos">
-            <Logos />
-          </Route>
-          <Route path="/categories">
-            <Categories />
-          </Route>
-        </Switch>
-      </div>
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/products">
+          <Products />
+        </Route>
+        <Route path="/logos">
+          <Logos />
+        </Route>
+        <Route path="/categories">
+          <Categories />
+        </Route>
+      </Switch>
+
     </Router>
   );
 }
