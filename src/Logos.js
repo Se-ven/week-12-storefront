@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 class Logos extends React.Component {
     constructor() {
@@ -11,7 +11,9 @@ class Logos extends React.Component {
 
     componentDidMount() {
         this.callApi()
-            .then(response => this.setState({ response: response.length + ' logos found.' }))
+            .then((response) => {
+                this.setState({ response })
+            })
             .catch(error => console.log(error));
     };
 
@@ -23,11 +25,23 @@ class Logos extends React.Component {
         return body;
     };
 
+
     render() {
+        const { response } = this.state;
+        const logosList = [];
+
+        for (const [index, item] of response.entries()) {
+            logosList.push(<li key={index}>{item.name}</li>)
+        }
+
         return (
             <div>
-                <div>Logos Place Holder</div>
-                <div>{this.state.response}</div>
+                <h1>{response.length} logos found:</h1>
+                <ListGroup>
+                    <ListGroupItem color="danger">{logosList}</ListGroupItem>
+
+                </ListGroup>
+
             </div>
         )
     }
