@@ -28,7 +28,7 @@ class Products extends React.Component {
     render() {
         return (
             <div>
-                <div>Products Place holder</div>
+                <div>Products added:</div>
                 <div>{this.state.response}</div>
             </div>
         )

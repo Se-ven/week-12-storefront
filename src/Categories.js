@@ -11,12 +11,14 @@ class Categories extends React.Component {
 
     componentDidMount() {
         this.callApi()
-            .then(response => this.setState({ response: response.length + ' number of categories.' }))
+            .then((response) => {
+                this.setState([{ response }])
+            })
             .catch(error => console.log(error));
     };
 
     callApi = async () => {
-        const response = await fetch('http://localhost:3000/categories')
+        const response = await fetch('http://localhost:3001/categories')
         const body = await response.json();
         if (response.status !== 200) throw Error(body.message);
 
@@ -26,7 +28,7 @@ class Categories extends React.Component {
     render() {
         return (
             <div>
-                <div>Categories Place Holder</div>
+                <div>Categories added:</div>
                 <div>{this.state.response}</div>
             </div>
         )
